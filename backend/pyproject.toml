@@ -1,0 +1,44 @@
+[project]
+name = "app"
+version = "0.0.1"
+description = ""
+requires-python = ">=3.11,<4.0"
+dependencies = [
+    "fastapi==0.115.12",
+    "uvicorn==0.34.2",
+    "typing-extensions==4.13.2",
+    "numpy==2.2.6",
+    "pydantic==2.11.5",
+    "weaviate-client==4.14.4",
+    "pacmap==0.8.0",
+    "umap-learn==0.5.7",
+    "trimap==1.1.4"
+]
+
+[build-system]
+requires = ["setuptools>=80", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["model", "vec_database"]
+
+[tool.ruff]
+target-version = "py310"
+
+[tool.ruff.lint]
+select = [
+    "E",  # pycodestyle errors
+    "W",  # pycodestyle warnings
+    "F",  # pyflakes
+    "I",  # isort
+    "B",  # flake8-bugbear
+    "C4",  # flake8-comprehensions
+    "UP",  # pyupgrade
+    "ARG001", # unused arguments in functions
+]
+ignore = [
+    "E501",  # line too long, handled by black
+    "B008",  # do not perform function calls in argument defaults
+    "W191",  # indentation contains tabs
+    "B904",  # Allow raising exceptions without from e, for HTTPException
+]
